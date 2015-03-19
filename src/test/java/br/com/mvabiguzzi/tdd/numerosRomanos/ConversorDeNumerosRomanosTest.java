@@ -50,4 +50,13 @@ public class ConversorDeNumerosRomanosTest {
 		
 		assertEquals(9, numero);
 	}
+	
+	@Test
+	public void deveEntenderNumerosComplexosComoXXIV() {
+		ConversorDeNumerosRomanos romano = new ConversorDeNumerosRomanos();
+		
+		int numero = romano.converte("XXIV");
+		
+		assertEquals(24, numero);
+	}
 }
