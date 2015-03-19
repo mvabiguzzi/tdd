@@ -1,17 +1,23 @@
 package br.com.mvabiguzzi.tdd.lojaVirtual;
 
+import junit.framework.Assert;
+
+import org.junit.Test;
+
 public class TestaMaiorMenor {
-	public static void main(String[] args) {
+	@Test
+	public void ordemDecrescente() {
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
 		
-		carrinho.adiciona(new Produto("Geladeira", 450.0));
+		carrinho.adiciona(new Produto("Geladeira", 540.0));
 		carrinho.adiciona(new Produto("Liquidificador", 250.0));
 		carrinho.adiciona(new Produto("Jogo de pratos", 70.0));
 		
 		MaiorMenor algoritimo = new MaiorMenor();
+		
 		algoritimo.encontra(carrinho);
 		
-		System.out.println("O menor produto: "+algoritimo.getMenor().getNome());
-		System.out.println("O maior produto: "+algoritimo.getMaior().getNome());
+		Assert.assertEquals("Jogo de pratos", algoritimo.getMenor().getNome());
+		Assert.assertEquals("Geladeira", algoritimo.getMaior().getNome());
 	}
 }
