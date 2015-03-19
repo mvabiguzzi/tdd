@@ -7,7 +7,7 @@ import org.junit.Test;
 public class ConversorDeNumerosRomanosTest {
 	
 	@Test
-	public void deveEntenderSimbuloI() {
+	public void deveEntenderSimboloI() {
 		ConversorDeNumerosRomanos romano = new ConversorDeNumerosRomanos();
 		
 		int numero = romano.converte("I");
@@ -16,7 +16,7 @@ public class ConversorDeNumerosRomanosTest {
 	}
 	
 	@Test
-	public void deveEntenterSimbuloV() {
+	public void deveEntenterSimboloV() {
 		ConversorDeNumerosRomanos romano = new ConversorDeNumerosRomanos();
 		
 		int numero = romano.converte("V");
