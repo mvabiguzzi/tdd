@@ -35,10 +35,19 @@ public class ConversorDeNumerosRomanosTest {
 	
 	@Test
 	public void deveEntenderQuatroSimbolosDoisADoisComoXXII() {
-ConversorDeNumerosRomanos romano = new ConversorDeNumerosRomanos();
+		ConversorDeNumerosRomanos romano = new ConversorDeNumerosRomanos();
 		
 		int numero = romano.converte("XXII");
 		
 		assertEquals(22, numero);
+	}
+	
+	@Test
+	public void deveEntenderNumerosComoIX() {
+		ConversorDeNumerosRomanos romano = new ConversorDeNumerosRomanos();
+		
+		int numero = romano.converte("IX");
+		
+		assertEquals(9, numero);
 	}
 }

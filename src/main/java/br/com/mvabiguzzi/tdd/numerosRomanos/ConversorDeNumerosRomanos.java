@@ -16,9 +16,16 @@ public class ConversorDeNumerosRomanos {
 	
 	public int converte(String numeroEmRomano) {
 		int acumulador = 0;
+		int vizinhoDaDireita = 0;
 		
-		for(int i = 0; i < numeroEmRomano.length(); i++) {
-			acumulador += tabela.get(numeroEmRomano.charAt(i));
+		for(int i = numeroEmRomano.length()-1; i >= 0; i--) {
+			int atual = tabela.get(numeroEmRomano.charAt(i));
+			int multiplicador = 1;
+			
+			if(atual < vizinhoDaDireita) multiplicador = -1;
+			
+			acumulador += atual*multiplicador;
+			vizinhoDaDireita = atual;
 		}
 		
 		return acumulador;
