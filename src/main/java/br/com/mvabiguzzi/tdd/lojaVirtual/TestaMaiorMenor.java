@@ -1,7 +1,6 @@
 package br.com.mvabiguzzi.tdd.lojaVirtual;
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 public class TestaMaiorMenor {
