@@ -32,4 +32,13 @@ public class ConversorDeNumerosRomanosTest {
 		
 		assertEquals(2, numero);
 	}
+	
+	@Test
+	public void deveEntenderQuatroSimbolosDoisADoisComoXXII() {
+ConversorDeNumerosRomanos romano = new ConversorDeNumerosRomanos();
+		
+		int numero = romano.converte("XXII");
+		
+		assertEquals(22, numero);
+	}
 }
