@@ -20,4 +20,18 @@ public class TestaMaiorMenor {
 		Assert.assertEquals("Jogo de pratos", algoritimo.getMenor().getNome());
 		Assert.assertEquals("Geladeira", algoritimo.getMaior().getNome());
 	}
+	
+	@Test
+	public void apenasUmProduto() {
+		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
+		
+		carrinho.adiciona(new Produto("Geladeira", 540.0));
+		
+		MaiorMenor algoritimo = new MaiorMenor();
+		
+		algoritimo.encontra(carrinho);
+		
+		Assert.assertEquals("Geladeira", algoritimo.getMenor().getNome());
+		Assert.assertEquals("Geladeira", algoritimo.getMaior().getNome());
+	}
 }
