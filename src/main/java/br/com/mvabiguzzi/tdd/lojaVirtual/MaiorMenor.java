@@ -8,7 +8,9 @@ public class MaiorMenor {
 		for(Produto produto: carrinho.getProdutos()) {
 			if(menor == null || produto.getValor() < menor.getValor()) {
 				menor = produto;
-			} else if(maior == null || produto.getValor() > maior.getValor()) {
+			}
+			
+			if(maior == null || produto.getValor() > maior.getValor()) {
 				maior = produto;
 			}
 		}
