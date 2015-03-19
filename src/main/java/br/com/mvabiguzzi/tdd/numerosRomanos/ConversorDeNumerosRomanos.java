@@ -3,7 +3,10 @@ package br.com.mvabiguzzi.tdd.numerosRomanos;
 public class ConversorDeNumerosRomanos {
 	
 	public int converte(String numeroEmRomano) {
-		return 1;
+		if(numeroEmRomano.equals("I")) return 1;
+		else if(numeroEmRomano.equals("V")) return 5;
+		
+		return 0;
 	}
 	
 }
