@@ -23,4 +23,13 @@ public class ConversorDeNumerosRomanosTest {
 		
 		assertEquals(5, numero);
 	}
+	
+	@Test
+	public void deveEntenderDoisSimbulosComoII() {
+		ConversorDeNumerosRomanos romano = new ConversorDeNumerosRomanos();
+		
+		int numero = romano.converte("II");
+		
+		assertEquals(2, numero);
+	}
 }
