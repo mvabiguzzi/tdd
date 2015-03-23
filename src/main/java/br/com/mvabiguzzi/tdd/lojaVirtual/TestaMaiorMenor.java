@@ -6,11 +6,15 @@ import org.junit.Test;
 public class TestaMaiorMenor {
 	@Test
 	public void ordemDecrescente() {
+		Produto geladeira = new Produto("Geladeira", 540.0);
+		Produto liquidificador = new Produto("Liquidificador", 250.0);
+		Produto jogoDePratos = new Produto("Jogo de pratos", 70.0);
+		
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
 		
-		carrinho.adiciona(new Produto("Geladeira", 540.0));
-		carrinho.adiciona(new Produto("Liquidificador", 250.0));
-		carrinho.adiciona(new Produto("Jogo de pratos", 70.0));
+		carrinho.adiciona(new Item(geladeira, 1));
+		carrinho.adiciona(new Item(liquidificador, 1));
+		carrinho.adiciona(new Item(jogoDePratos, 1));
 		
 		MaiorMenor algoritimo = new MaiorMenor();
 		
@@ -22,9 +26,11 @@ public class TestaMaiorMenor {
 	
 	@Test
 	public void apenasUmProduto() {
+		Produto geladeira = new Produto("Geladeira", 540.0);
+		
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
 		
-		carrinho.adiciona(new Produto("Geladeira", 540.0));
+		carrinho.adiciona(new Item(geladeira, 1));
 		
 		MaiorMenor algoritimo = new MaiorMenor();
 		

@@ -4,17 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarrinhoDeCompras {
-	private List<Produto> produtos;
-
-	public List<Produto> getProdutos() {
-		return produtos;
+	private List<Item> itens;
+	
+	public CarrinhoDeCompras() {
+		this.itens = new ArrayList<Item>();
 	}
 	
-	public void adiciona(Produto produto) {
-		if(this.produtos == null) {
-			this.produtos = new ArrayList<Produto>();
+	public List<Item> getItens() {
+		return this.itens;
+	}
+	
+	public void adiciona(Item item) {
+		if(this.itens == null) {
+			this.itens = new ArrayList<Item>();
 		}
 		
-		this.produtos.add(produto);
+		this.itens.add(item);
 	}
 }

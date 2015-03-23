@@ -5,13 +5,13 @@ public class MaiorMenor {
 	private Produto maior;
 	
 	public void encontra(CarrinhoDeCompras carrinho) {
-		for(Produto produto: carrinho.getProdutos()) {
-			if(menor == null || produto.getValor() < menor.getValor()) {
-				menor = produto;
+		for(Item item: carrinho.getItens()) {
+			if(menor == null || item.getProduto().getValor() < menor.getValor()) {
+				menor = item.getProduto();
 			}
 			
-			if(maior == null || produto.getValor() > maior.getValor()) {
-				maior = produto;
+			if(maior == null || item.getProduto().getValor() > maior.getValor()) {
+				maior = item.getProduto();
 			}
 		}
 	}
