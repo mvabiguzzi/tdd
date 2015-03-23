@@ -10,11 +10,7 @@ public class MaiorPrecoTest {
 	public void deveRetornarZeroSeCarrinhoVazio() {
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras();
 		
-		MaiorPreco algoritimo = new MaiorPreco();
-		
-		double valor = algoritimo.encontra(carrinho);
-		
-		assertEquals(0.0, valor, 0.0001);
+		assertEquals(0.0, carrinho.maiorValor(), 0.0001);
 	}
 	
 	@Test
@@ -25,11 +21,7 @@ public class MaiorPrecoTest {
 		
 		carrinho.adiciona(new Item(geladeira, 1));
 		
-		MaiorPreco algoritimo = new MaiorPreco();
-		
-		double valor = algoritimo.encontra(carrinho);
-		
-		assertEquals(900.0, valor, 0.0001);
+		assertEquals(900.0, carrinho.maiorValor(), 0.0001);
 	}
 	
 	@Test
@@ -44,10 +36,6 @@ public class MaiorPrecoTest {
 		carrinho.adiciona(new Item(fogao, 1));
 		carrinho.adiciona(new Item(maquinaDeLavar, 1));
 		
-		MaiorPreco algoritimo = new MaiorPreco();
-		
-		double valor = algoritimo.encontra(carrinho);
-		
-		assertEquals(1500.0, valor, 0.0001);
+		assertEquals(1500.0, carrinho.maiorValor(), 0.0001);
 	}
 }

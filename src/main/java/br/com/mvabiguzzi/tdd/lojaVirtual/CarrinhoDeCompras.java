@@ -21,4 +21,16 @@ public class CarrinhoDeCompras {
 		
 		this.itens.add(item);
 	}
+	
+	public double maiorValor() {
+		double maior = 0;
+		
+		for(Item item : this.itens) {
+			if(item.getValorTotal() > maior) {
+				maior = item.getValorTotal();
+			}
+		}
+		
+		return maior;
+	}
 }
