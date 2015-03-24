@@ -1,17 +1,17 @@
 package br.com.mvabiguzzi.tdd.calculoSalario;
 
 public enum Cargo {
-	DESENVOLVEDOR(3000.0,0.9,0.8),
-	DBA(2500.0,0.85,0.75),
-	TESTADOR(2500.0,0.85,0.75);
+	DESENVOLVEDOR(new DezOuVintePorCento()),
+	DBA(new QuinzeOuVinteCincoPorCento()),
+	TESTADOR(new QuinzeOuVinteCincoPorCento());
 	
-	public double limite;
-	public double descontoAbaixoLimite;
-	public double descontoAcimaLimite;
+	private final RegraDeCalculo regra;
 	
-	Cargo(double limite, double descontoAbaixoLimite, double descontoAcimaLimite) {
-		this.limite = limite;
-		this.descontoAbaixoLimite = descontoAbaixoLimite;
-		this.descontoAcimaLimite = descontoAcimaLimite;
+	Cargo(RegraDeCalculo regra) {
+		this.regra = regra;
+	}
+	
+	public RegraDeCalculo getRegra() {
+		return regra;
 	}
 }
