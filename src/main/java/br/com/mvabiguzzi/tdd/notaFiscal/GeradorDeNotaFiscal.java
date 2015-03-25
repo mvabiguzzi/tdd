@@ -1,22 +1,22 @@
 package br.com.mvabiguzzi.tdd.notaFiscal;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class GeradorDeNotaFiscal {
 	
-	private NfDao dao;
-	private SAP sap;
+	private final List<AcaoAposGerarNota> acoes;
 	
-	public GeradorDeNotaFiscal(NfDao dao, SAP sap) {
-		this.dao = dao;
-		this.sap = sap;
+	public GeradorDeNotaFiscal(List<AcaoAposGerarNota> acoes) {
+		this.acoes = acoes;
 	}
 	
 	public NotaFiscal gera(Pedido pedido) {
 		NotaFiscal nf = new NotaFiscal(pedido.getCliente(), pedido.getValorTotal()*0.94, Calendar.getInstance());
 		
-		dao.persiste(nf);
-		sap.envia(nf);
+		for(AcaoAposGerarNota acao :  acoes) {
+			acao.executa(nf);
+		}
 		
 		return nf;
 	}

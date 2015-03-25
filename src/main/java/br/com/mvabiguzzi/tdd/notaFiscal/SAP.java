@@ -1,9 +1,11 @@
 package br.com.mvabiguzzi.tdd.notaFiscal;
 
-public class SAP {
+public class SAP implements AcaoAposGerarNota {
 	
-	public void envia(NotaFiscal nf) {
-		//envia nf para o sap
+	@Override
+	public void executa(NotaFiscal nf) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

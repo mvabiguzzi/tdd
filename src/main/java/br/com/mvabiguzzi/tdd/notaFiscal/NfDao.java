@@ -1,9 +1,11 @@
 package br.com.mvabiguzzi.tdd.notaFiscal;
 
-public class NfDao {
+public class NfDao implements AcaoAposGerarNota {
 	
-	public void persiste(NotaFiscal nf) {
-		//persiste a Nf
+	@Override
+	public void executa(NotaFiscal nf) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

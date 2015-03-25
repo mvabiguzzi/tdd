@@ -1,27 +1,27 @@
 package br.com.mvabiguzzi.tdd.notaFiscal;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 public class GeradorDeNotaFiscalTest {
 	
-	private NfDao dao;
-	private SAP sap;
-	private GeradorDeNotaFiscal gerador;
+	private List<AcaoAposGerarNota> acoes;
 	
 	@Before
 	public void setup() {
-		this.dao = Mockito.mock(NfDao.class);
-		this.sap = Mockito.mock(SAP.class);
-		
-		this.gerador = new GeradorDeNotaFiscal(dao, sap);
+		this.acoes = new ArrayList<AcaoAposGerarNota>();
 	}
 	
 	@Test
 	public void deveGerarNotaFiscalComValorDeImpostoDescontado() {
+		GeradorDeNotaFiscal gerador = new GeradorDeNotaFiscal(acoes);
 		Pedido pedido = new Pedido("Marcos Vinícius", 1000.0, 1);
 		
 		NotaFiscal nf = gerador.gera(pedido);
@@ -31,20 +31,30 @@ public class GeradorDeNotaFiscalTest {
 	
 	@Test
 	public void devePersistirNfGerada() {
+		NfDao dao = mock(NfDao.class);
+		
+		acoes.add(dao);
+		
+		GeradorDeNotaFiscal gerador = new GeradorDeNotaFiscal(acoes);
 		Pedido pedido = new Pedido("Marcos Vinícius", 1000, 1);
 		
 		NotaFiscal nf = gerador.gera(pedido);
 		
-		Mockito.verify(dao).persiste(nf);
+		verify(dao).executa(nf);
 	}
 	
 	@Test
 	public void deveEnviarNfGeradaParaSap() {
+		SAP sap = mock(SAP.class);
+		
+		acoes.add(sap);
+		
+		GeradorDeNotaFiscal gerador = new GeradorDeNotaFiscal(acoes);
 		Pedido pedido = new Pedido("Marcos Vinícius", 1000, 1);
 		
 		NotaFiscal nf = gerador.gera(pedido);
 		
-		Mockito.verify(sap).envia(nf);
+		verify(sap).executa(nf);
 	}
 	
 }
