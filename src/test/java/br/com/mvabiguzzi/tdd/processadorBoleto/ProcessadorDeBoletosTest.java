@@ -39,4 +39,18 @@ public class ProcessadorDeBoletosTest {
 		assertEquals(200.0, fatura.getPagamentos().get(1).getValor(), 0.0001);
 	}
 	
+	@Test
+	public void deveMarcarFaturaComoPagaCasoUmUnicoBoletoPagueTudo() {
+		ProcessadorDeBoletos processador = new ProcessadorDeBoletos();
+		
+		Fatura fatura = new Fatura("Cliente", 150.0);
+		
+		Boleto b1 = new Boleto(150.0);
+		List<Boleto> boletos = Arrays.asList(b1);
+		
+		processador.processa(boletos, fatura);
+		
+		assertTrue(fatura.isPago());
+	}
+	
 }
